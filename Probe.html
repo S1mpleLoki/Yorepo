@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fenster Konfigurator & Angebote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column; /* Vertikale Anordnung der Sektionen */
+      justify-content: flex-start; /* Oben beginnen */
+      align-items: center;
+      min-height: 100vh; /* Mindesthöhe des Bodys */
+      margin: 0;
+      padding: 20px; /* Etwas Abstand vom Rand */
+      box-sizing: border-box; /* Padding in der Breite berücksichtigen */
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 40px; /* Abstand zwischen Konfigurator und Angeboten */
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .result {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #e9f5ff;
+      display: none; /* Anfangs versteckt */
+    }
+
+    /* Styles für "Unsere Angebote" */
+    .offers-section {
+      width: 100%;
+      max-width: 900px; /* Maximale Breite für die Angebotssektion */
+      text-align: center;
+      margin-top: 20px;
+    }
+    .offers-section h2 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .product-cards-wrapper {
+      display: flex;
+      flex-wrap: wrap; /* Erlaubt Umbruch auf kleineren Bildschirmen */
+      justify-content: center; /* Zentriert die Karten */
+      gap: 30px; /* Abstand zwischen den Karten */
+    }
+    .product-card {
+      background: #fdf5e6; /* Helles Gelb für die Karten */
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 1; /* Macht die Karten flexibel */
+      min-width: 300px; /* Minimale Breite der Karten */
+      max-width: 400px; /* Maximale Breite der Karten */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left; /* Text innerhalb der Karte linksbündig */
+    }
+    .product-card img {
+      width: 100%; /* Bild füllt die Breite der Karte aus */
+      max-width: 250px; /* Maximale Breite für die Bilder */
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #eee; /* Leichter Rand um die Bilder */
+    }
+    .product-card h3 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 15px;
+      width: 100%; /* Überschrift füllt die Breite der Karte aus */
+      text-align: center; /* Überschrift zentriert */
+    }
+    .product-card p {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+      width: 100%; /* Text füllt die Breite der Karte aus */
+    }
+    .product-card .buy-button {
+      background: #e67e22; /* Orange für den Kauf-Button */
+      margin-top: auto; /* Sorgt dafür, dass der Button unten bleibt */
+    }
+    .product-card .buy-button:hover {
+      background: #d35400;
+    }
+    .product-card .small-text {
+      font-size: 0.85em;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .product-cards-wrapper {
+        flex-direction: column; /* Stapelt die Karten vertikal auf kleineren Bildschirmen */
+        align-items: center;
+      }
+      .product-card {
+        max-width: 90%; /* Karten nehmen fast die volle Breite ein */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Fenster Konfigurator</h2>
+    
+    <label for="width">Breite (cm)</label>
+    <input type="number" id="width" placeholder="z.B. 120">
+    
+    <label for="height">Höhe (cm)</label>
+    <input type="number" id="height" placeholder="z.B. 100">
+    
+    <button onclick="calculateResult()">Berechnen</button>
+
+    <div id="smallBox" class="result">Das Fenster ist klein (unter 5000 cm²).</div>
+    <div id="mediumBox" class="result">Das Fenster ist mittelgroß (5000 - 10000 cm²).</div>
+    <div id="largeBox" class="result">Das Fenster ist groß (über 10000 cm²).</div>
+  </div>
+
+  <div class="offers-section">
+    <h2>Unsere Angebote</h2>
+    <div class="product-cards-wrapper">
+      <div class="product-card">
+        <h3>Solarbanger</h3>
+        
+        <img src="https://i.ibb.co/hK7JqJ8/Image-1.png" alt="Solarbanger Jalousie">
+        <p>Wir bieten keine Standardlösungen. Denn wir wissen: Jeder Kunde ist anders. Deshalb entwickeln wir in enger Absprache mit unseren Kunden individuelle und einzigartige Lösungen.</p>
+        <p>Der Solarbanger ist unser <b>Topmodell</b> der Jalousie. Er ist individuell an Ihre Bedürfnisse angepasst, hat <b>Smart Home</b> Kompatibilität und <b>KI-Basierte</b> Wetter- & Sonnenstandserkennung. Aus <b>recyclebaren Materialien</b>. Der Aufbau ist in jedem Gebäude möglich und es gibt <b>persönlich angepasste Maße</b>, genau für Ihre Situation!</p>
+        <p class="small-text">Wenn Sie unsere Maße unverbindlich testen möchten, dann probieren Sie unseren Konfigurator.</p>
+        <button class="buy-button">Ich will dieses Modell kaufen</button>
+      </div>
+
+      <div class="product-card">
+        <h3>Solarjalousie</h3>
+        
+        <img src="https://i.ibb.co/L5k6pQf/Image-2.png" alt="Standard Solarjalousie">
+        <p>Das Standardprodukt, einfach, schnell und kostengünstig. Dennoch volle Solscoir <b>Qualität</b> und viele Funktionen. Durch den einfachen Aufbau ist sie wartungsarm und genau für Leute geeignet, die es gerne simpel möchten.</p>
+        <p>Es gibt drei Maße, sodass beinah <b>jedes Fenster</b> mit unserer Jalousie beschattet werden kann. Aus <b>recyclebaren Materialien</b>.</p>
+        <p>Einfach - Nachrüsten - Neubau</p>
+        <p class="small-text">Wenn Sie unsere Maße unverbindlich testen möchten, dann probieren Sie unseren Konfigurator.</p>
+        <button class="buy-button">Ich will dieses Modell kaufen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const width = parseFloat(document.getElementById("width").value);
+      const height = parseFloat(document.getElementById("height").value);
+
+      // Alle Boxen verstecken
+      document.getElementById("smallBox").style.display = "none";
+      document.getElementById("mediumBox").style.display = "none";
+      document.getElementById("largeBox").style.display = "none";
+
+      if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+        alert("Bitte gültige positive Werte für Breite und Höhe eingeben!");
+        return;
+      }
+
+      const area = width * height;
+
+      if (area < 5000) {
+        document.getElementById("smallBox").style.display = "block";
+      } else if (area < 10000) {
+        document.getElementById("mediumBox").style.display = "block";
+      } else {
+        document.getElementById("largeBox").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
