@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fenster Konfigurator & Angebote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+
+    .result {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #e9f5ff;
+      display: none;
+    }
+
+    .offers-section {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 500px; /* <- Größerer Abstand nach unten */
+    }
+
+    .offers-section h2 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .product-cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fdf5e6;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+    }
+
+    .product-card h3 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 15px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .product-card p {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .product-card .buy-button {
+      background: #e67e22;
+      margin-top: auto;
+    }
+
+    .product-card .buy-button:hover {
+      background: #d35400;
+    }
+
+    .product-card .small-text {
+      font-size: 0.85em;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    .last-step-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      margin: 40px auto;
+      text-align: left;
+    }
+
+    .last-step-section h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-summary p {
+      font-size: 1.1em;
+      margin: 0.5rem 0;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .product-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-card {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Fenster Konfigurator</h2>
+
+    <label for="width">Breite (cm)</label>
+    <input type="number" id="width" placeholder="z.B. 120"/>
+
+    <label for="height">Höhe (cm)</label>
+    <input type="number" id="height" placeholder="z.B. 100"/>
+
+    <button onclick="calculateResult()">Berechnen</button>
+
+    <div id="smallBox" class="result">Das Fenster ist klein (unter 5000 cm²).</div>
+    <div id="mediumBox" class="result">Das Fenster ist mittelgroß (5000 - 10000 cm²).</div>
+    <div id="largeBox" class="result">Das Fenster ist groß (über 10000 cm²).</div>
+  </div>
+
+  <div class="offers-section">
+    <h2>Unsere Angebote</h2>
+    <div class="product-cards-wrapper">
+      <div class="product-card">
+        <h3>SolarJalousie S1 </h3>
+        <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,trim=256;0;256;0,width=1024,height=1024/image/527491360/d75eee72-efc6-4afa-a03f-68e64c8f624e.png" alt="Solarbanger Jalousie" />
+        <p>Das Standartprodukt, einfach, schnell und kostengünstig. Dennoch volle Solscoir Qualität und viele Funktionen. Durch den einfachen Aufbau ist sie wartungsarm und genau für Leute geeignet, die es gerne simpel möchten.</p>
+
+<p>Es gibt drei Maße, sodass beinah jedes Fenster mit unserer Jalousie beschattet werden kann. Aus recyclebaren Materialien</p>
+
+
+<p>Einfach - Nachrüsten - Neubau
+</p>
+        <p class="small-text">Nutzen Sie den Konfigurator für individuelle Maße.</p>
+        <button class="buy-button" onclick="scrollToLastStep('solar1')">Ich will dieses Modell kaufen</button>
+      </div>
+
+      <div class="product-card">
+        <h3>SmartSolar1</h3>
+        <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,trim=0;0;0;0,width=1024,height=1024/image/527631518/5bb3f5e2-da2b-4693-a629-71adf1d320bc.jpg" alt="Standard Solarjalousie" />
+        <p>SmartSolar ist ein Allrounder.</p>
+<p>Sowohl für den Sparfuchs als auch für den Extravaganten Käufer. SmartSolar bietet ein einzigartiges Desing bei welchem jedem die Sonne ins Herz scheint.</p>
+
+<p>SmartSolar vereint einfache Montage mit smarten Funktionen wie KI gesteuerte Lamellen Anpassung  für die Optimale Umwandlung von Sonnenenergie in Strom – ideal für alle, die mehr als Standard wollen. In persönlich anpassbaren Größen verfügbar, aus recyclebaren Materialien gefertigt und perfekt für Nachrüstung oder Neubau geeignet.</p>
+        <p class="small-text">Nutzen Sie den Konfigurator für individuelle Maße.</p>
+        <button class="buy-button" onclick="scrollToLastStep('solar2')">Ich will dieses Modell kaufen</button>
+      </div>
+
+      <div class="product-card">
+        <h3>Solarbanger X 1000</h3>
+        <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,trim=8;0;8;0,width=640,height=640/image/527644506/1a927ab1-afd4-4e33-943a-cab6d03ed075.png" alt="Standard Solarjalousie" />
+        <p>Wir bieten keine Standardlösungen. Denn wir wissen: Jeder Kunde ist anders. Deshalb entwicklen wir in enger Absprache mit unseren Kunden individuelle und einzigartige Lösungen.</p>
+
+<p>Der Solarbanger ist unser Topmodell der Jalousie. Er ist individuell an ihre Bedürfnisse angepasst, hat Smart Home Kompatibilität und KI-Basierte Wetter & Sonnenstanderkennung. Aus recyclebaren Materialien</p>
+<p>Der Aufbau ist in jedem Gebäude möglich und es gibt persönlich angepasste Maße, genau für ihre Situation! .</p>
+
+        <p class="small-text">Nutzen Sie den Konfigurator für individuelle Maße.</p>
+        <button class="buy-button" onclick="scrollToLastStep('solar3')">Ich will dieses Modell kaufen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Letzter Schritt Sektionen -->
+  <div id="solar1" class="last-step-section">
+    <h2>Letzter Schritt – SolarJalousie S1</h2>
+    <div class="product-summary">
+      <p><strong>Preis:</strong></p>
+      <p>Kleines(90x120cm) - 300 € </p>
+      <p>Mitteles(120x160cm) - 350 € </p>
+      <p>Großes(80x200cm) - 450 € </p>
+      <button class="buy-button" onclick="scrollToLastStep('solar1')">Ich will dieses Modell kaufen</button>
+    </div>
+  </div>
+
+  <div id="solar2" class="last-step-section">
+    <h2>Letzter Schritt – SmartSolar1</h2>
+    <div class="product-summary">
+      <p><strong>Preis:</strong></p>
+      <p>Preise variiren sich zwischen 300 € und 1500 €</p>
+      <p class="small-text">*Preis hängt von der Größe ab*</p>
+      <p><strong>Maße:</strong></p>
+      <p> Da SmartSolar1 unser Pre-Topmodell ist - korrigieren wie die Maße selbst! </p>
+      <button class="buy-button" onclick="scrollToLastStep('solar2')">Ich will dieses Modell kaufen</button>
+
+    </div>
+  </div>
+
+  <div id="solar3" class="last-step-section">
+    <h2>Letzter Schritt – Solarbanger X 1000</h2>
+    <div class="product-summary">
+      <p><strong>Preis:</strong></p>
+      <p>Preise variiren sich zwischen 300 € und 1500 €</p>
+      <p class="small-text">*Preis hängt von der Größe ab*</p>
+      <p><strong>Maße:</strong></p>
+      <p> Da Solarbanger X 1000 unser Topmodell ist - korrigieren wie die Maße selbst! </p>
+      <button class="buy-button" onclick="scrollToLastStep('solar3')">Ich will dieses Modell kaufen</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateResult() {
+      const width = parseFloat(document.getElementById("width").value);
+      const height = parseFloat(document.getElementById("height").value);
+
+      document.getElementById("smallBox").style.display = "none";
+      document.getElementById("mediumBox").style.display = "none";
+      document.getElementById("largeBox").style.display = "none";
+
+      if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+        alert("Bitte gültige positive Werte für Breite und Höhe eingeben!");
+        return;
+      }
+
+      const area = width * height;
+
+      if (area < 5000) {
+        document.getElementById("smallBox").style.display = "block";
+      } else if (area < 10000) {
+        document.getElementById("mediumBox").style.display = "block";
+      } else {
+        document.getElementById("largeBox").style.display = "block";
+      }
+    }
+
+    // Scrollt zur jeweiligen Sektion mit smooth scroll
+    function scrollToLastStep(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+</body>
+</html>
