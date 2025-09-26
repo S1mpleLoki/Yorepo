@@ -261,8 +261,30 @@
       <button class="buy-button" onclick="scrollToLastStep('solar3')">Ich will dieses Modell kaufen</button>
     </div>
   </div>
+  <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+  <section id="contact">
+  <h2>Contact Us</h2>
+  
+  <p><strong>Email:</strong> <a href="mailto:info@solscoir.example">info@solscoir.example</a></p>
+  <p><strong>Telefon:</strong> +49 (0)30 12345678</p>
 
+  <form action="mailto:info@solscoir.example" method="POST" enctype="text/plain">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="6" required></textarea><br><br>
+    <div id="contactthank" class="result">Danke, dass sie uns kontaktiert haben!</div>
+    <button type="submit" onclick="Addthesentance()">Send Message</button>
+  </form>
+  </section>
   <script>
+    function Addthesentance(){
+      document.getElementById("contactthank").style.display = "block";
+        }
     function calculateResult() {
       const width = parseFloat(document.getElementById("width").value);
       const height = parseFloat(document.getElementById("height").value);
@@ -297,3 +319,4 @@
   </script>
 </body>
 </html>
+
